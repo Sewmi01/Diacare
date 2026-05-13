@@ -19,7 +19,6 @@ class LoginRolePage1 extends StatelessWidget {
         child: SafeArea(
           child: Column(
             children: [
-              // Back button
               Row(
                 children: [
                   IconButton(
@@ -31,7 +30,6 @@ class LoginRolePage1 extends StatelessWidget {
 
               const Spacer(),
 
-              // Logo
               SizedBox(
                 height: 140,
                 child: Image.asset("assets/icons/dia 1.png"),
@@ -50,16 +48,8 @@ class LoginRolePage1 extends StatelessWidget {
 
               const SizedBox(height: 8),
 
-              // const Text(
-              //   "Select your role to register",
-              //   style: TextStyle(
-              //     color: Colors.white70,
-              //     fontSize: 14,
-              //   ),
-              // ),
               const SizedBox(height: 50),
 
-              // Patient Register Button
               _roleButton(
                 context,
                 title: "Patient",
@@ -76,20 +66,6 @@ class LoginRolePage1 extends StatelessWidget {
 
               const SizedBox(height: 20),
 
-              // Doctor Register Button
-              // _roleButton(
-              //   context,
-              //   title: "Doctor",
-              //   icon: Icons.local_hospital,
-              //   onTap: () {
-              //     Navigator.push(
-              //       context,
-              //       MaterialPageRoute(
-              //         builder: (context) => const DoctorRegisterPage(),
-              //       ),
-              //     );
-              //   },
-              // ),
               const Spacer(),
             ],
           ),
