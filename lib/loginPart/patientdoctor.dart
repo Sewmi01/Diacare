@@ -19,7 +19,6 @@ class LoginRolePage extends StatelessWidget {
         child: SafeArea(
           child: Column(
             children: [
-              // Back button row
               Row(
                 children: [
                   IconButton(
@@ -31,7 +30,6 @@ class LoginRolePage extends StatelessWidget {
 
               const Spacer(),
 
-              // Logo
               SizedBox(
                 height: 140,
                 child: Image.asset("assets/icons/dia 1.png"),
@@ -52,15 +50,11 @@ class LoginRolePage extends StatelessWidget {
 
               const Text(
                 "Select how you want to continue",
-                style: TextStyle(
-                  color: Colors.white70,
-                  fontSize: 14,
-                ),
+                style: TextStyle(color: Colors.white70, fontSize: 14),
               ),
 
               const SizedBox(height: 50),
 
-              // Patient Card Button
               _roleButton(
                 context,
                 title: "Patient",
@@ -77,7 +71,6 @@ class LoginRolePage extends StatelessWidget {
 
               const SizedBox(height: 20),
 
-              // Doctor Card Button
               _roleButton(
                 context,
                 title: "Doctor",
@@ -100,10 +93,12 @@ class LoginRolePage extends StatelessWidget {
     );
   }
 
-  Widget _roleButton(BuildContext context,
-      {required String title,
-      required IconData icon,
-      required VoidCallback onTap}) {
+  Widget _roleButton(
+    BuildContext context, {
+    required String title,
+    required IconData icon,
+    required VoidCallback onTap,
+  }) {
     return SizedBox(
       width: 250,
       height: 60,
