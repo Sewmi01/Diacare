@@ -1,16 +1,16 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.diecare_app">
 
-    <!-- 🔔 Notifications (Android 13+) -->
+    
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
 
-    <!-- ⏰ Exact alarms (medicine reminders) -->
+   
     <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM"/>
 
-    <!-- 🔥 Required for precise alarms (Android 12+) -->
+   
     <uses-permission android:name="android.permission.USE_EXACT_ALARM"/>
 
-    <!-- 🔋 prevent alarm stopping in background (recommended) -->
+    
     <uses-permission android:name="android.permission.WAKE_LOCK"/>
 
     <application
@@ -40,14 +40,13 @@
 
         </activity>
 
-        <!-- 🔔 Required for flutter plugins -->
+       
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
 
     </application>
 
-    <!-- safe queries -->
     <queries>
         <intent>
             <action android:name="android.intent.action.PROCESS_TEXT"/>
