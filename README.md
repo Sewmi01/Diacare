@@ -71,7 +71,7 @@ The doctor dashboard allowa patients details and patients ,medical reports.
 
 ### 4. Reminder Module
 
-Patients can schedule medication and water intake reminders to improve daily diabetes management.
+Patients can schedule medication reminders to improve daily diabetes management.
 
 ### 5. Diet Management Module
 
@@ -92,25 +92,22 @@ DiaCare follows a cloud-based mobile application architecture.
 
 - The mobile application is developed using Flutter.
 - Firebase Authentication handles secure login.
+- Superbase store patients reports
 - Cloud Firestore stores patient records, glucose readings, diet data, and reminder information.
 - Firebase Cloud Storage is used for storing images and related media.
 - Doctors can access patient data through a role-based dashboard.
 - Patients and doctors interact with the same cloud backend in real time.
 
----
-
 ## Functional Requirements
 
 - Users can register and log in as patients or doctors.
 - Patients can enter and store glucose readings.
-- Patients can schedule medication and water reminders.
+- Patients can schedule medication  reminders.
 - Patients can view diet and fruit sugar information.
 - Doctors can view patient records.
-- Doctors can monitor glucose trends using charts.
 - The system supports role-based access control.
 - Data is stored securely in the cloud.
 
----
 
 ## Non-Functional Requirements
 
@@ -123,31 +120,25 @@ DiaCare follows a cloud-based mobile application architecture.
 - Scalable cloud-based backend
 - Reliable data storage and backup support
 
----
 
 ## Development Methodology
 
 This project follows the Agile development methodology. The system is developed in smaller phases or sprints, allowing each module to be designed, implemented, tested, and improved step by step.
 
----
 
 ## Current Implementation Status
 
-The following modules have been implemented or partially implemented:
+The following modules have been implemented :
 
 - User authentication
 - Role-based dashboard navigation
 - Patient and doctor login interfaces
-- Blood glucose level entry
 - Cloud Firestore data storage
 - Medication reminder scheduling
-- Water reminder scheduling
 - Diet management interface
 - Fruit sugar content display
 - Basic chatbot functionality
-- Basic doctor dashboard analytics
 
----
 
 ## Future Improvements
 
@@ -163,35 +154,6 @@ Future improvements may include:
 - iOS version support
 - Advanced reports and export options
 
----
-
-## Project Structure
-
-```text
-diacare/
-│
-├── android/
-├── assets/
-│   └── icons/
-├── lib/
-│   ├── main.dart
-│   ├── start_page.dart
-│   ├── login/
-│   ├── register/
-│   ├── patient/
-│   ├── doctor/
-│   ├── reminders/
-│   ├── diet/
-│   ├── chatbot/
-│   └── services/
-│
-├── pubspec.yaml
-└── README.md
-```
-
-> Note: The folder structure may vary depending on the final implementation.
-
----
 
 ## Installation and Setup
 
@@ -205,35 +167,6 @@ Make sure the following are installed:
 - Android Emulator or Android device
 - Firebase project
 
-### Steps to Run the Project
-
-1. Clone the repository:
-
-```bash
-git clone https://github.com/your-username/diacare.git
-```
-
-2. Navigate to the project folder:
-
-```bash
-cd diacare
-```
-
-3. Install dependencies:
-
-```bash
-flutter pub get
-```
-
-4. Connect Firebase to the project.
-
-5. Run the application:
-
-```bash
-flutter run
-```
-
----
 
 ## Testing
 
@@ -247,29 +180,6 @@ The application can be tested using:
 - Reminder notification testing
 - Role-based login testing
 
----
-
-## Screenshots
-
-Add your application screenshots here.
-
-```text
-assets/screenshots/start_page.png
-assets/screenshots/login_page.png
-assets/screenshots/patient_dashboard.png
-assets/screenshots/doctor_dashboard.png
-```
-
-Example:
-
-```markdown
-![Start Page](assets/screenshots/start_page.png)
-![Login Page](assets/screenshots/login_page.png)
-![Patient Dashboard](assets/screenshots/patient_dashboard.png)
-![Doctor Dashboard](assets/screenshots/doctor_dashboard.png)
-```
-
----
 
 ## Author
 
@@ -278,21 +188,6 @@ Plymouth Index Number: **10953503**
 Degree Program: **Computer Science**  
 Module: **PUSL3190 Computing Project**
 
----
-
 ## Supervisor
 
 **Mr. Gayan Perera**
-
----
-
-## Disclaimer
-
-DiaCare is developed as an academic final year project. The application provides diabetes management support and general guidance only. It is not a replacement for professional medical advice, diagnosis, or treatment. Users should always consult a qualified healthcare professional for medical decisions.
-
----
-
-## License
-
-This project is developed for academic purposes.  
-You may add a license such as MIT License if you plan to make the project open source.
