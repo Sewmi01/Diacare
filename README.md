@@ -37,14 +37,12 @@ Diabetic patients in Sri Lanka often face difficulties such as:
 - Forgetting medication schedules
 - Poor diet control
 - Lack of water intake monitoring
-- Manual blood sugar tracking
 - Limited communication between patients and doctors
 - Lack of localized diabetes management applications
 - Difficulty for doctors to monitor patient progress between clinic visits
 
-DiaCare addresses these issues by combining reminders, diet management, sugar level tracking, chatbot support, and doctor monitoring in one application.
+DiaCare addresses these issues by combining reminders, diet management, chatbot support, and doctor monitoring in one application.
 
----
 
 ## Technologies Used
 
@@ -56,8 +54,6 @@ DiaCare addresses these issues by combining reminders, diet management, sugar le
 - **Flutter Local Notifications** - Reminder notifications
 - **Figma** - UI/UX design and prototyping
 - **Android Studio** - Development environment
-
----
 
 ## System Modules
 
@@ -71,29 +67,24 @@ The patient dashboard allows users to manage glucose readings, reminders, diet p
 
 ### 3. Doctor Dashboard
 
-The doctor dashboard allows doctors to view patient details and monitor glucose level trends using visual charts.
+The doctor dashboard allowa patients details and patients ,medical reports.
 
-### 4. Glucose Monitoring Module
-
-Patients can enter blood glucose readings, and the data is stored in the cloud. Doctors can access this data for monitoring and analysis.
-
-### 5. Reminder Module
+### 4. Reminder Module
 
 Patients can schedule medication and water intake reminders to improve daily diabetes management.
 
-### 6. Diet Management Module
+### 5. Diet Management Module
 
 The system provides diabetes-friendly diet guidance, including food categories suitable for diabetic patients.
 
-### 7. Fruit Sugar Content Module
+### 6. Fruit Sugar Content Module
 
 The application provides sugar content information for fruits per 100g to help patients make better food choices.
 
-### 8. Chatbot Module
+### 7. Chatbot Module
 
 The chatbot provides basic diabetes-related guidance and answers frequently asked questions.
 
----
 
 ## System Architecture
 
