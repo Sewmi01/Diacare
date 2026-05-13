@@ -12,7 +12,6 @@ class ReminderService {
       FlutterLocalNotificationsPlugin();
 
   Future<void> init() async {
-    // 🌍 timezone setup (IMPORTANT)
     tz.initializeTimeZones();
     tz.setLocalLocation(tz.getLocation('Asia/Colombo'));
 
@@ -22,10 +21,10 @@ class ReminderService {
 
     await notificationsPlugin.initialize(settings: settings);
 
-    // 🔔 runtime permission (Android 13+)
     await notificationsPlugin
         .resolvePlatformSpecificImplementation<
-            AndroidFlutterLocalNotificationsPlugin>()
+          AndroidFlutterLocalNotificationsPlugin
+        >()
         ?.requestNotificationsPermission();
   }
 
@@ -34,7 +33,6 @@ class ReminderService {
 
     if (user == null) return;
 
-    // save to Firestore
     final docRef = await firestore.collection('reminders').add({
       'userId': user.uid,
       'title': title,
@@ -43,7 +41,6 @@ class ReminderService {
       'createdAt': FieldValue.serverTimestamp(),
     });
 
-    // schedule notification using doc id
     await _scheduleNotification(docRef.id, title, desc, time);
   }
 
@@ -60,13 +57,11 @@ class ReminderService {
     return snapshot.docs;
   }
 
-  // 🔥 DELETE reminder + cancel notification
   Future<void> deleteReminder(String docId) async {
     await firestore.collection('reminders').doc(docId).delete();
     await notificationsPlugin.cancel(id: docId.hashCode);
   }
 
-  // 🔔 internal scheduler
   Future<void> _scheduleNotification(
     String id,
     String title,
@@ -90,7 +85,6 @@ class ReminderService {
         ),
       ),
       androidScheduleMode: AndroidScheduleMode.exactAllowWhileIdle,
-
     );
   }
 }
