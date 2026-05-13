@@ -7,11 +7,9 @@ The system focuses on providing a simple, localized, and user-friendly digital h
 
 ## Project Overview
 
-Diabetes management requires continuous attention to medication, blood glucose monitoring, diet control, hydration, and regular communication with healthcare professionals. Many patients still depend on manual notebooks, memory-based medication tracking, and disconnected digital tools.
+Diabetes management requires continuous attention to medication, diet control, and regular communication with healthcare professionals. Many patients still depend on manual notebooks, memory-based medication tracking, and disconnected digital tools.
 
 DiaCare provides a unified mobile platform where patients can manage daily diabetes-related activities while doctors can monitor patient health records and glucose trends more effectively.
-
----
 
 ## Main Features
 
@@ -19,9 +17,7 @@ DiaCare provides a unified mobile platform where patients can manage daily diabe
 
 - Patient registration and login
 - Patient dashboard
-- Blood glucose level entry
 - Medication reminder scheduling
-- Water intake reminder scheduling
 - Diet plan guidance
 - Fruit sugar content information per 100g
 - Chatbot support for basic diabetes-related guidance
@@ -32,11 +28,7 @@ DiaCare provides a unified mobile platform where patients can manage daily diabe
 - Doctor registration and login
 - Doctor dashboard
 - View patient profiles
-- View patient glucose records
-- Monitor patient sugar level trends using charts and graphs
 - Support better doctor-patient communication through real-time data access
-
----
 
 ## Problem Addressed
 
