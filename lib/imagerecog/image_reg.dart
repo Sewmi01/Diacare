@@ -24,7 +24,6 @@ class _FruitScannerState extends State<ScanFruits> {
   bool isModelLoaded = false;
   String status = "Loading model...";
 
-  // ✅ Sugar Data
   Map<String, String> sugarData = {
     "apple": "10g",
     "avocado": "0.7g",
@@ -75,12 +74,9 @@ class _FruitScannerState extends State<ScanFruits> {
     });
   }
 
-  // ✅ Load Model
   Future<void> loadModel() async {
     try {
-      interpreter = await Interpreter.fromAsset(
-        "assets/model.tflite",
-      );
+      interpreter = await Interpreter.fromAsset("assets/model.tflite");
 
       print("Model Loaded ✅");
     } catch (e) {
@@ -92,11 +88,8 @@ class _FruitScannerState extends State<ScanFruits> {
     }
   }
 
-  // ✅ Load Labels
   Future<void> loadLabels() async {
-    final data = await rootBundle.loadString(
-      "assets/labels.txt",
-    );
+    final data = await rootBundle.loadString("assets/labels.txt");
 
     labels = data
         .split("\n")
@@ -107,11 +100,8 @@ class _FruitScannerState extends State<ScanFruits> {
     print(labels);
   }
 
-  // ✅ Pick Image
   Future<void> pickImage(ImageSource source) async {
-    final picked = await ImagePicker().pickImage(
-      source: source,
-    );
+    final picked = await ImagePicker().pickImage(source: source);
 
     if (picked != null) {
       setState(() {
@@ -122,7 +112,6 @@ class _FruitScannerState extends State<ScanFruits> {
     }
   }
 
-  // ✅ Run AI Model
   Future<void> runModel() async {
     if (image == null || interpreter == null) {
       return;
@@ -131,8 +120,7 @@ class _FruitScannerState extends State<ScanFruits> {
     try {
       var bytes = await image!.readAsBytes();
 
-      img.Image? originalImage =
-          img.decodeImage(bytes);
+      img.Image? originalImage = img.decodeImage(bytes);
 
       if (originalImage == null) return;
 
@@ -146,30 +134,19 @@ class _FruitScannerState extends State<ScanFruits> {
         1,
         (_) => List.generate(
           224,
-          (y) => List.generate(
-            224,
-            (x) {
-              final pixel = resized.getPixel(x, y);
+          (y) => List.generate(224, (x) {
+            final pixel = resized.getPixel(x, y);
 
-              return [
-                pixel.r / 255.0,
-                pixel.g / 255.0,
-                pixel.b / 255.0,
-              ];
-            },
-          ),
+            return [pixel.r / 255.0, pixel.g / 255.0, pixel.b / 255.0];
+          }),
         ),
       );
 
-      var outputShape =
-          interpreter!.getOutputTensor(0).shape;
+      var outputShape = interpreter!.getOutputTensor(0).shape;
 
       int numClasses = outputShape[1];
 
-      var output = List.generate(
-        1,
-        (_) => List.filled(numClasses, 0.0),
-      );
+      var output = List.generate(1, (_) => List.filled(numClasses, 0.0));
 
       interpreter!.run(input, output);
 
@@ -182,8 +159,7 @@ class _FruitScannerState extends State<ScanFruits> {
         if (probs[i] > probs[maxIndex]) {
           secondIndex = maxIndex;
           maxIndex = i;
-        } else if (i != maxIndex &&
-            probs[i] > probs[secondIndex]) {
+        } else if (i != maxIndex && probs[i] > probs[secondIndex]) {
           secondIndex = i;
         }
       }
@@ -193,7 +169,6 @@ class _FruitScannerState extends State<ScanFruits> {
 
       String detected = labels[maxIndex];
 
-      // ✅ Smart Detection
       double threshold = 0.65;
       double margin = 0.20;
 
@@ -206,8 +181,7 @@ class _FruitScannerState extends State<ScanFruits> {
           result = detected.replaceAll("_", " ");
         }
 
-        confidence =
-            "${(maxVal * 100).toStringAsFixed(2)}%";
+        confidence = "${(maxVal * 100).toStringAsFixed(2)}%";
       });
 
       print("Detected: $result");
@@ -227,7 +201,6 @@ class _FruitScannerState extends State<ScanFruits> {
     super.dispose();
   }
 
-  // ✅ Custom Button
   Widget customButton({
     required String title,
     required IconData icon,
@@ -242,10 +215,7 @@ class _FruitScannerState extends State<ScanFruits> {
         icon: Icon(icon),
         label: Text(
           title,
-          style: const TextStyle(
-            fontSize: 16,
-            fontWeight: FontWeight.w600,
-          ),
+          style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
         ),
         style: ElevatedButton.styleFrom(
           backgroundColor: buttonColor,
@@ -261,19 +231,11 @@ class _FruitScannerState extends State<ScanFruits> {
 
   @override
   Widget build(BuildContext context) {
-    String cleanResult = result
-        .trim()
-        .toLowerCase()
-        .replaceAll(" ", "_");
+    String cleanResult = result.trim().toLowerCase().replaceAll(" ", "_");
 
-    // ✅ Sugar Value
-    String sugar =
-        sugarData[cleanResult] ?? "0g";
+    String sugar = sugarData[cleanResult] ?? "0g";
 
-    double sugarValue = double.tryParse(
-          sugar.replaceAll("g", ""),
-        ) ??
-        0;
+    double sugarValue = double.tryParse(sugar.replaceAll("g", "")) ?? 0;
 
     return Scaffold(
       backgroundColor: const Color(0xFFF4F7FC),
@@ -284,10 +246,7 @@ class _FruitScannerState extends State<ScanFruits> {
         backgroundColor: const Color(0xFFF4F7FC),
         title: const Text(
           "Fruit Scanner 🍎",
-          style: TextStyle(
-            color: Colors.black,
-            fontWeight: FontWeight.bold,
-          ),
+          style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
         ),
       ),
 
@@ -297,8 +256,6 @@ class _FruitScannerState extends State<ScanFruits> {
 
           child: Column(
             children: [
-
-              // ✅ Image Card
               Container(
                 width: double.infinity,
                 height: 280,
@@ -317,8 +274,7 @@ class _FruitScannerState extends State<ScanFruits> {
 
                 child: image == null
                     ? Column(
-                        mainAxisAlignment:
-                            MainAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: const [
                           Icon(
                             Icons.image_outlined,
@@ -328,27 +284,19 @@ class _FruitScannerState extends State<ScanFruits> {
                           SizedBox(height: 12),
                           Text(
                             "No Image Selected",
-                            style: TextStyle(
-                              fontSize: 18,
-                              color: Colors.grey,
-                            ),
+                            style: TextStyle(fontSize: 18, color: Colors.grey),
                           ),
                         ],
                       )
                     : ClipRRect(
-                        borderRadius:
-                            BorderRadius.circular(24),
+                        borderRadius: BorderRadius.circular(24),
 
-                        child: Image.file(
-                          image!,
-                          fit: BoxFit.cover,
-                        ),
+                        child: Image.file(image!, fit: BoxFit.cover),
                       ),
               ),
 
               const SizedBox(height: 25),
 
-              // ✅ Status
               Container(
                 padding: const EdgeInsets.symmetric(
                   horizontal: 18,
@@ -362,34 +310,26 @@ class _FruitScannerState extends State<ScanFruits> {
 
                 child: Text(
                   status,
-                  style: const TextStyle(
-                    fontWeight: FontWeight.w600,
-                  ),
+                  style: const TextStyle(fontWeight: FontWeight.w600),
                 ),
               ),
 
               const SizedBox(height: 25),
 
-              // ✅ Result Card
               Container(
                 width: double.infinity,
                 padding: const EdgeInsets.all(22),
 
                 decoration: BoxDecoration(
                   gradient: const LinearGradient(
-                    colors: [
-                      Color(0xFF0B0F3B),
-                      Color(0xFF1B256B),
-                    ],
+                    colors: [Color(0xFF0B0F3B), Color(0xFF1B256B)],
                   ),
 
-                  borderRadius:
-                      BorderRadius.circular(24),
+                  borderRadius: BorderRadius.circular(24),
 
                   boxShadow: [
                     BoxShadow(
-                      color: const Color(0xFF0B0F3B)
-                          .withOpacity(0.3),
+                      color: const Color(0xFF0B0F3B).withOpacity(0.3),
                       blurRadius: 15,
                       offset: const Offset(0, 8),
                     ),
@@ -398,13 +338,9 @@ class _FruitScannerState extends State<ScanFruits> {
 
                 child: Column(
                   children: [
-
                     const Text(
                       "Detection Result",
-                      style: TextStyle(
-                        color: Colors.white70,
-                        fontSize: 16,
-                      ),
+                      style: TextStyle(color: Colors.white70, fontSize: 16),
                     ),
 
                     const SizedBox(height: 14),
@@ -426,10 +362,7 @@ class _FruitScannerState extends State<ScanFruits> {
                     Text(
                       "Confidence : ${confidence.isEmpty ? '-' : confidence}",
 
-                      style: const TextStyle(
-                        color: Colors.white,
-                        fontSize: 18,
-                      ),
+                      style: const TextStyle(color: Colors.white, fontSize: 18),
                     ),
 
                     const SizedBox(height: 10),
@@ -454,7 +387,6 @@ class _FruitScannerState extends State<ScanFruits> {
 
               const SizedBox(height: 30),
 
-              // ✅ Camera Button
               customButton(
                 title: "Open Camera",
                 icon: Icons.camera_alt,
@@ -465,7 +397,6 @@ class _FruitScannerState extends State<ScanFruits> {
 
               const SizedBox(height: 15),
 
-              // ✅ Gallery Button
               customButton(
                 title: "Open Gallery",
                 icon: Icons.photo,
@@ -476,16 +407,11 @@ class _FruitScannerState extends State<ScanFruits> {
 
               const SizedBox(height: 15),
 
-              // ✅ Analyze Button
               customButton(
-                title: isModelLoaded
-                    ? "Analyze Fruit"
-                    : "Loading Model...",
+                title: isModelLoaded ? "Analyze Fruit" : "Loading Model...",
                 icon: Icons.analytics,
                 buttonColor: const Color(0xFFFF6B35),
-                onTap: isModelLoaded
-                    ? runModel
-                    : () {},
+                onTap: isModelLoaded ? runModel : () {},
               ),
             ],
           ),
