@@ -3,7 +3,6 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 class PatientReportsService {
   final SupabaseClient _client = Supabase.instance.client;
 
-  // ✅ FIXED STREAM (safe + stable)
   Stream<List<Map<String, dynamic>>> watchReports(String patientId) {
     return _client
         .from("patient_reports")
@@ -12,7 +11,6 @@ class PatientReportsService {
         .map((data) {
           final list = List<Map<String, dynamic>>.from(data);
 
-          // manual sort (SAFE)
           list.sort((a, b) {
             final aTime = a["uploaded_at"] ?? "";
             final bTime = b["uploaded_at"] ?? "";
@@ -23,7 +21,6 @@ class PatientReportsService {
         });
   }
 
-  // ✅ CREATE REPORT
   Future<void> createReport({
     required String patientId,
     required String patientName,
@@ -41,9 +38,11 @@ class PatientReportsService {
     });
   }
 
-  // ✅ DELETE (FIXED SAFE TYPE HANDLING)
   Future<void> deleteReport(dynamic reportId) async {
-    await _client.from("patient_reports").delete().eq(
+    await _client
+        .from("patient_reports")
+        .delete()
+        .eq(
           "id",
           reportId.toString(), // 🔥 FIX int → string crash
         );

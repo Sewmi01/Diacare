@@ -37,7 +37,10 @@ class DietPlanPage extends StatelessWidget {
           child: Column(
             children: [
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 16,
+                  vertical: 10,
+                ),
                 child: Row(
                   children: [Image.asset("assets/icons/dia 1.png", height: 40)],
                 ),
@@ -72,19 +75,20 @@ class DietPlanPage extends StatelessWidget {
 
                     return GridView.builder(
                       padding: const EdgeInsets.symmetric(horizontal: 20),
-                      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 2,
-                        crossAxisSpacing: 16,
-                        mainAxisSpacing: 16,
-                      ),
+                      gridDelegate:
+                          const SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: 2,
+                            crossAxisSpacing: 16,
+                            mainAxisSpacing: 16,
+                          ),
                       itemCount: reports.length,
                       itemBuilder: (context, index) {
                         final data = reports[index];
                         final reportUrl =
                             ((data["image_url"] ?? data["imageUrl"]) ?? "")
                                 .toString();
-                        final title =
-                            ((data["title"] ?? "Report") as Object).toString();
+                        final title = ((data["title"] ?? "Report") as Object)
+                            .toString();
                         final isPdf = _looksLikePdf(reportUrl);
 
                         if (reportUrl.isEmpty) {
@@ -175,21 +179,7 @@ class DietPlanPage extends StatelessWidget {
                 );
               },
             ),
-            // IconButton(icon: const Icon(Icons.image, size: 28), onPressed: () {}),
-            // IconButton(
-            //   icon: const Icon(Icons.list_alt, size: 28),
-            //   onPressed: () {
-            //     Navigator.push(
-            //       context,
-            //       MaterialPageRoute(
-            //         builder: (_) => DietPlanPage(
-            //           patientId: patientId,
-            //           patientName: patientName,
-            //         ),
-            //       ),
-            //     );
-            //   },
-            // ),
+
             IconButton(
               icon: const Icon(Icons.notifications, size: 28),
               onPressed: () {

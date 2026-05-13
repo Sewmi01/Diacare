@@ -23,7 +23,6 @@ class StartPage extends StatelessWidget {
             children: [
               const Spacer(),
 
-              // Logo
               SizedBox(
                 height: 160,
                 child: Image.asset("assets/icons/dia 1.png"),
@@ -44,15 +43,11 @@ class StartPage extends StatelessWidget {
 
               const Text(
                 "Manage your health easily",
-                style: TextStyle(
-                  color: Colors.white70,
-                  fontSize: 14,
-                ),
+                style: TextStyle(color: Colors.white70, fontSize: 14),
               ),
 
               const SizedBox(height: 50),
 
-              // Login Button
               SizedBox(
                 width: 220,
                 height: 50,
@@ -78,7 +73,6 @@ class StartPage extends StatelessWidget {
 
               const SizedBox(height: 15),
 
-              // Register Button
               SizedBox(
                 width: 220,
                 height: 50,

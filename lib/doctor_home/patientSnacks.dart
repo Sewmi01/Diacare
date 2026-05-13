@@ -18,13 +18,12 @@ class Patientsnacks extends StatefulWidget {
 class _PatientsnacksState extends State<Patientsnacks> {
   final TextEditingController _controller = TextEditingController();
 
-  // ✅ SAFE: no LateInitializationError
-  DocumentReference<Map<String, dynamic>> get docRef =>
-      FirebaseFirestore.instance
-          .collection("patients")
-          .doc(widget.patientId)
-          .collection("foodlists")
-          .doc("snacks");
+  DocumentReference<Map<String, dynamic>> get docRef => FirebaseFirestore
+      .instance
+      .collection("patients")
+      .doc(widget.patientId)
+      .collection("foodlists")
+      .doc("snacks");
 
   Future<void> _addItem() async {
     final text = _controller.text.trim();
@@ -65,9 +64,7 @@ class _PatientsnacksState extends State<Patientsnacks> {
     showDialog(
       context: context,
       builder: (_) => AlertDialog(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(16),
-        ),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
         title: const Text("Add Snack"),
         content: TextField(
           controller: _controller,
@@ -83,10 +80,7 @@ class _PatientsnacksState extends State<Patientsnacks> {
             },
             child: const Text("Cancel"),
           ),
-          ElevatedButton(
-            onPressed: _addItem,
-            child: const Text("Add"),
-          ),
+          ElevatedButton(onPressed: _addItem, child: const Text("Add")),
         ],
       ),
     );
@@ -104,7 +98,7 @@ class _PatientsnacksState extends State<Patientsnacks> {
           IconButton(
             onPressed: _showAddDialog,
             icon: const Icon(Icons.add_circle_outline),
-          )
+          ),
         ],
       ),
 
@@ -167,7 +161,7 @@ class _PatientsnacksState extends State<Patientsnacks> {
                         color: Colors.black26,
                         blurRadius: 6,
                         offset: const Offset(0, 3),
-                      )
+                      ),
                     ],
                   ),
                   child: Row(
@@ -175,13 +169,13 @@ class _PatientsnacksState extends State<Patientsnacks> {
                       const Icon(Icons.fastfood, color: Colors.orange),
                       const SizedBox(width: 12),
                       Expanded(
-                        child: Text(
-                          item,
-                          style: const TextStyle(fontSize: 16),
-                        ),
+                        child: Text(item, style: const TextStyle(fontSize: 16)),
                       ),
-                      const Icon(Icons.swipe_left,
-                          size: 18, color: Colors.grey),
+                      const Icon(
+                        Icons.swipe_left,
+                        size: 18,
+                        color: Colors.grey,
+                      ),
                     ],
                   ),
                 ),

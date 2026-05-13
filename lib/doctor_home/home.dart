@@ -60,10 +60,7 @@ class DoctorDashboardPage extends StatelessWidget {
 
             const Text(
               "Quick Actions",
-              style: TextStyle(
-                color: Colors.white70,
-                fontSize: 16,
-              ),
+              style: TextStyle(color: Colors.white70, fontSize: 16),
             ),
 
             const SizedBox(height: 15),
@@ -83,19 +80,6 @@ class DoctorDashboardPage extends StatelessWidget {
             ),
 
             const SizedBox(height: 15),
-
-            // Card Button 2 (future use)
-          //   _buildCardButton(
-          //   //   context,
-          //   //   icon: Icons.analytics,
-          //   //   title: "Patient Reports",
-          //   //   subtitle: "View health analytics",
-          //   //   onTap: () {
-          //   //     ScaffoldMessenger.of(context).showSnackBar(
-          //   //       const SnackBar(content: Text("Coming soon")),
-          //   //     );
-          //   //   },
-          //   // ),
           ],
         ),
       ),
@@ -142,17 +126,17 @@ class DoctorDashboardPage extends StatelessWidget {
                   const SizedBox(height: 4),
                   Text(
                     subtitle,
-                    style: const TextStyle(
-                      color: Colors.white60,
-                      fontSize: 13,
-                    ),
+                    style: const TextStyle(color: Colors.white60, fontSize: 13),
                   ),
                 ],
               ),
             ),
 
-            const Icon(Icons.arrow_forward_ios,
-                size: 16, color: Colors.white70),
+            const Icon(
+              Icons.arrow_forward_ios,
+              size: 16,
+              color: Colors.white70,
+            ),
           ],
         ),
       ),

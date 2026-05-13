@@ -21,7 +21,9 @@ class SupabaseStorageService {
     final filePath = "patients/$patientId/reports/$fileName";
     final contentType = _contentTypeForExtension(extension);
 
-    await Supabase.instance.client.storage.from(bucket).upload(
+    await Supabase.instance.client.storage
+        .from(bucket)
+        .upload(
           filePath,
           file,
           fileOptions: FileOptions(
@@ -31,7 +33,6 @@ class SupabaseStorageService {
           ),
         );
 
-    // This expects the bucket to be public.
     return Supabase.instance.client.storage.from(bucket).getPublicUrl(filePath);
   }
 

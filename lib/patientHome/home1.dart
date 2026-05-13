@@ -36,7 +36,6 @@ class HomePage extends StatelessWidget {
       body: SafeArea(
         child: Column(
           children: [
-            // 🔹 Top bar
             Padding(
               padding: const EdgeInsets.all(16),
               child: Row(
@@ -46,12 +45,11 @@ class HomePage extends StatelessWidget {
                   IconButton(
                     onPressed: () => _logout(context),
                     icon: const Icon(Icons.logout, color: Colors.white),
-                  )
+                  ),
                 ],
               ),
             ),
 
-            // 🔹 Greeting Card
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16),
               child: Container(
@@ -74,7 +72,6 @@ class HomePage extends StatelessWidget {
 
             const SizedBox(height: 20),
 
-            // 🔹 Grid
             Expanded(
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -87,19 +84,28 @@ class HomePage extends StatelessWidget {
                       context,
                       "Vegetables",
                       "assets/images/vegetable.png",
-                      VegetablesPage(patientId: patientId, patientName: patientName),
+                      VegetablesPage(
+                        patientId: patientId,
+                        patientName: patientName,
+                      ),
                     ),
                     categoryButton(
                       context,
                       "Fruits",
                       "assets/images/fruits.png",
-                      FruitsPage(patientId: patientId, patientName: patientName),
+                      FruitsPage(
+                        patientId: patientId,
+                        patientName: patientName,
+                      ),
                     ),
                     categoryButton(
                       context,
                       "Beverages",
                       "assets/images/beverage.png",
-                      BeveragesPage(patientId: patientId, patientName: patientName),
+                      BeveragesPage(
+                        patientId: patientId,
+                        patientName: patientName,
+                      ),
                     ),
                     categoryButton(
                       context,
@@ -112,7 +118,6 @@ class HomePage extends StatelessWidget {
               ),
             ),
 
-            // 🔹 Action buttons
             Padding(
               padding: const EdgeInsets.all(16),
               child: Column(
@@ -121,7 +126,10 @@ class HomePage extends StatelessWidget {
                     context,
                     "Patient Report",
                     Icons.bar_chart,
-                    DietPlanPage(patientId: patientId, patientName: patientName),
+                    DietPlanPage(
+                      patientId: patientId,
+                      patientName: patientName,
+                    ),
                   ),
                   const SizedBox(height: 10),
                   _actionButton(
@@ -134,7 +142,6 @@ class HomePage extends StatelessWidget {
               ),
             ),
 
-            // 🔹 Bottom nav (visual only improved)
             Container(
               margin: const EdgeInsets.all(16),
               padding: const EdgeInsets.symmetric(vertical: 12),
