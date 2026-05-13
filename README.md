@@ -1,1 +1,315 @@
-# Diacare
+# DiaCare - Personalized Diabetes Reminder System
+
+DiaCare is a mobile-based diabetes management application designed to support diabetic patients and doctors through reminders, diet guidance, fruit sugar content information, chatbot assistance, and real-time health data access.
+
+The system focuses on providing a simple, localized, and user-friendly digital healthcare solution for diabetic patients, especially in Sri Lanka.
+
+
+## Project Overview
+
+Diabetes management requires continuous attention to medication, blood glucose monitoring, diet control, hydration, and regular communication with healthcare professionals. Many patients still depend on manual notebooks, memory-based medication tracking, and disconnected digital tools.
+
+DiaCare provides a unified mobile platform where patients can manage daily diabetes-related activities while doctors can monitor patient health records and glucose trends more effectively.
+
+---
+
+## Main Features
+
+### Patient Features
+
+- Patient registration and login
+- Patient dashboard
+- Blood glucose level entry
+- Medication reminder scheduling
+- Water intake reminder scheduling
+- Diet plan guidance
+- Fruit sugar content information per 100g
+- Chatbot support for basic diabetes-related guidance
+- Simple and user-friendly mobile interface
+
+### Doctor Features
+
+- Doctor registration and login
+- Doctor dashboard
+- View patient profiles
+- View patient glucose records
+- Monitor patient sugar level trends using charts and graphs
+- Support better doctor-patient communication through real-time data access
+
+---
+
+## Problem Addressed
+
+Diabetic patients in Sri Lanka often face difficulties such as:
+
+- Forgetting medication schedules
+- Poor diet control
+- Lack of water intake monitoring
+- Manual blood sugar tracking
+- Limited communication between patients and doctors
+- Lack of localized diabetes management applications
+- Difficulty for doctors to monitor patient progress between clinic visits
+
+DiaCare addresses these issues by combining reminders, diet management, sugar level tracking, chatbot support, and doctor monitoring in one application.
+
+---
+
+## Technologies Used
+
+- **Flutter** - Mobile application development
+- **Dart** - Programming language
+- **Firebase Authentication** - Secure user login and registration
+- **Cloud Firestore** - Real-time cloud database
+- **Firebase Cloud Storage** - Image and file storage
+- **Flutter Local Notifications** - Reminder notifications
+- **Figma** - UI/UX design and prototyping
+- **Android Studio** - Development environment
+
+---
+
+## System Modules
+
+### 1. Authentication Module
+
+The application supports secure login and registration for both patients and doctors. Users are redirected to separate dashboards based on their role.
+
+### 2. Patient Dashboard
+
+The patient dashboard allows users to manage glucose readings, reminders, diet plans, and fruit sugar information.
+
+### 3. Doctor Dashboard
+
+The doctor dashboard allows doctors to view patient details and monitor glucose level trends using visual charts.
+
+### 4. Glucose Monitoring Module
+
+Patients can enter blood glucose readings, and the data is stored in the cloud. Doctors can access this data for monitoring and analysis.
+
+### 5. Reminder Module
+
+Patients can schedule medication and water intake reminders to improve daily diabetes management.
+
+### 6. Diet Management Module
+
+The system provides diabetes-friendly diet guidance, including food categories suitable for diabetic patients.
+
+### 7. Fruit Sugar Content Module
+
+The application provides sugar content information for fruits per 100g to help patients make better food choices.
+
+### 8. Chatbot Module
+
+The chatbot provides basic diabetes-related guidance and answers frequently asked questions.
+
+---
+
+## System Architecture
+
+DiaCare follows a cloud-based mobile application architecture.
+
+- The mobile application is developed using Flutter.
+- Firebase Authentication handles secure login.
+- Cloud Firestore stores patient records, glucose readings, diet data, and reminder information.
+- Firebase Cloud Storage is used for storing images and related media.
+- Doctors can access patient data through a role-based dashboard.
+- Patients and doctors interact with the same cloud backend in real time.
+
+---
+
+## Functional Requirements
+
+- Users can register and log in as patients or doctors.
+- Patients can enter and store glucose readings.
+- Patients can schedule medication and water reminders.
+- Patients can view diet and fruit sugar information.
+- Doctors can view patient records.
+- Doctors can monitor glucose trends using charts.
+- The system supports role-based access control.
+- Data is stored securely in the cloud.
+
+---
+
+## Non-Functional Requirements
+
+- Simple and easy-to-use interface
+- Secure user authentication
+- Role-based data access
+- Real-time data synchronization
+- Mobile-friendly Android interface
+- Fast application loading time
+- Scalable cloud-based backend
+- Reliable data storage and backup support
+
+---
+
+## Development Methodology
+
+This project follows the Agile development methodology. The system is developed in smaller phases or sprints, allowing each module to be designed, implemented, tested, and improved step by step.
+
+---
+
+## Current Implementation Status
+
+The following modules have been implemented or partially implemented:
+
+- User authentication
+- Role-based dashboard navigation
+- Patient and doctor login interfaces
+- Blood glucose level entry
+- Cloud Firestore data storage
+- Medication reminder scheduling
+- Water reminder scheduling
+- Diet management interface
+- Fruit sugar content display
+- Basic chatbot functionality
+- Basic doctor dashboard analytics
+
+---
+
+## Future Improvements
+
+Future improvements may include:
+
+- Advanced AI-based chatbot responses
+- More flexible reminder repetition options
+- Missed medication tracking
+- Predictive glucose level analysis
+- Improved doctor analytics dashboard
+- Automatic fruit image recognition
+- UI improvements for elderly users
+- iOS version support
+- Advanced reports and export options
+
+---
+
+## Project Structure
+
+```text
+diacare/
+│
+├── android/
+├── assets/
+│   └── icons/
+├── lib/
+│   ├── main.dart
+│   ├── start_page.dart
+│   ├── login/
+│   ├── register/
+│   ├── patient/
+│   ├── doctor/
+│   ├── reminders/
+│   ├── diet/
+│   ├── chatbot/
+│   └── services/
+│
+├── pubspec.yaml
+└── README.md
+```
+
+> Note: The folder structure may vary depending on the final implementation.
+
+---
+
+## Installation and Setup
+
+### Prerequisites
+
+Make sure the following are installed:
+
+- Flutter SDK
+- Dart SDK
+- Android Studio
+- Android Emulator or Android device
+- Firebase project
+
+### Steps to Run the Project
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/your-username/diacare.git
+```
+
+2. Navigate to the project folder:
+
+```bash
+cd diacare
+```
+
+3. Install dependencies:
+
+```bash
+flutter pub get
+```
+
+4. Connect Firebase to the project.
+
+5. Run the application:
+
+```bash
+flutter run
+```
+
+---
+
+## Testing
+
+The application can be tested using:
+
+- Android Emulator
+- Physical Android device
+- Firebase test data
+- Functional testing
+- Usability testing with selected users
+- Reminder notification testing
+- Role-based login testing
+
+---
+
+## Screenshots
+
+Add your application screenshots here.
+
+```text
+assets/screenshots/start_page.png
+assets/screenshots/login_page.png
+assets/screenshots/patient_dashboard.png
+assets/screenshots/doctor_dashboard.png
+```
+
+Example:
+
+```markdown
+![Start Page](assets/screenshots/start_page.png)
+![Login Page](assets/screenshots/login_page.png)
+![Patient Dashboard](assets/screenshots/patient_dashboard.png)
+![Doctor Dashboard](assets/screenshots/doctor_dashboard.png)
+```
+
+---
+
+## Author
+
+**Sewmi Patabendi**  
+Plymouth Index Number: **10953503**  
+Degree Program: **Computer Science**  
+Module: **PUSL3190 Computing Project**
+
+---
+
+## Supervisor
+
+**Mr. Gayan Perera**
+
+---
+
+## Disclaimer
+
+DiaCare is developed as an academic final year project. The application provides diabetes management support and general guidance only. It is not a replacement for professional medical advice, diagnosis, or treatment. Users should always consult a qualified healthcare professional for medical decisions.
+
+---
+
+## License
+
+This project is developed for academic purposes.  
+You may add a license such as MIT License if you plan to make the project open source.
